@@ -1,0 +1,6 @@
+{application, cmps10,
+ [{description, "CMPS10/i2c device controller"},
+  {vsn, git},
+  {env, []},
+  {applications,[kernel,stdlib]}
+  ]}.
