@@ -34,15 +34,15 @@ read0(Bus) ->
 
 read(Bus) ->
     case read(Bus, 0, 22) of
-	{ok, <<>>,
-	 <<Version,Bearing0,
-	   Bearing1:16,
-	   Pitch:8/signed,
-	   Roll:8/signed,
-	   _:4/binary,
-	   MagX:16/signed,MagY:16/signed,MagZ:16/signed,
-	   AccX:16/signed,AccY:16/signed,AccZ:16/signed
-	   >>} ->
+	{ok, [<<>>,
+	      <<Version,Bearing0,
+		Bearing1:16,
+		Pitch:8/signed,
+		Roll:8/signed,
+		_:4/binary,
+		MagX:16/signed,MagY:16/signed,MagZ:16/signed,
+		AccX:16/signed,AccY:16/signed,AccZ:16/signed
+	      >>]} ->
 	    [{version, Version},
 	     {bearing0, (Bearing0/256)*360},
 	     {bearing1, (Bearing1/10)},
