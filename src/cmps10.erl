@@ -12,7 +12,7 @@
 -include_lib("i2c/include/i2c.hrl").
 
 -ifndef(CMPS10_CHIP_ADDR).
--define(CMPS10_CHIP_ADDR, 16#C0).
+-define(CMPS10_CHIP_ADDR, 16#60).
 -endif.
 
 read(Bus, Addr, Size) when is_integer(Addr), Addr >= 0,
