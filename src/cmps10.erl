@@ -23,10 +23,10 @@ read0(Bus) ->
      {bearing1, compass_bearing1(Bus)},
      {pitch, pitch_angle(Bus)},
      {roll, roll_angle(Bus)},
-     {magnometer, 
-      {magnometer_x(Bus),
-       magnometer_y(Bus),
-       magnometer_z(Bus)}},
+     {magnetometer, 
+      {magnetometer_x(Bus),
+       magnetometer_y(Bus),
+       magnetometer_z(Bus)}},
      {accelerometer,
       {accelerometer_x(Bus),
        accelerometer_y(Bus),
@@ -48,7 +48,7 @@ read(Bus) ->
 	     {bearing1, (Bearing1/10)},
 	     {pitch, Pitch},
 	     {roll, Roll},
-	     {magnometer, {MagX,MagY,MagZ}},
+	     {magnetometer, {MagX,MagY,MagZ}},
 	     {accelerometer, {AccX,AccY,AccZ}}]
     end.
 
@@ -77,17 +77,17 @@ roll_angle(Bus) ->
 	{ok, [<<>>, <<Roll:8/signed>>]} -> Roll
     end.
 
-magnometer_x(Bus) ->
+magnetometer_x(Bus) ->
     case read(Bus, 10, 2) of
 	{ok, [<<>>, <<Raw:16/signed>>]} -> Raw
     end.
 
-magnometer_y(Bus) ->
+magnetometer_y(Bus) ->
     case read(Bus, 12, 2) of
 	{ok, [<<>>, <<Raw:16/signed>>]} -> Raw
     end.
 
-magnometer_z(Bus) ->
+magnetometer_z(Bus) ->
     case read(Bus, 14, 2) of
 	{ok, [<<>>, <<Raw:16/signed>>]} -> Raw
     end.
